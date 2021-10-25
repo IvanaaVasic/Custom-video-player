@@ -3,7 +3,6 @@ const play = document.getElementById("play");
 const stop = document.getElementById("stop");
 const progress = document.getElementById("progress");
 const progressVolume = document.getElementById("progress-volume");
-const volumeNum = parseFloat(progressVolume.value);
 const timestamp = document.getElementById("timestamp");
 const fullScreen = document.getElementById("fullScreen");
 const volume = document.getElementById("volume");
@@ -27,6 +26,7 @@ function updatePlayIcon() {
 }
 //Update progress volume
 function updateVolume() {
+  const volumeNum = parseFloat(progressVolume.value);
   video.volume = volumeNum;
 }
 
@@ -71,6 +71,8 @@ function setScreenSize() {
 //Mute video
 function toggleMute() {
   video.muted = !video.muted;
+  const volumeNum = parseFloat(progressVolume.value);
+
   if (video.muted) {
     console.log("muted");
     progressVolume.value = 0;
