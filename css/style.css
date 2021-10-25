@@ -1,0 +1,125 @@
+@font-face {
+  font-family: "Chivo-light";
+  src: url("assets/Chivo-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Chivo-light;
+  background-color: #f6f8ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  color: #222731;
+  text-align: center;
+}
+.container {
+  width: 70vw;
+  height: 80vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.6);
+}
+.screen {
+  cursor: pointer;
+  width: 100%;
+  background-color: #000 !important;
+  max-height: 100%;
+  position: relative;
+}
+.progress-controls-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  background: rgba(51, 51, 51, 0.7);
+}
+.controls {
+  color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+}
+.right-parth-controls {
+  display: flex;
+  flex-direction: row;
+}
+
+.controls .btn {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.controls .fa-play {
+  color: white;
+}
+
+.controls .fa-stop {
+  color: white;
+  margin-right: 10px;
+}
+
+.controls .fa-pause {
+  color: #fff;
+}
+.controls .fa-volume-up {
+  color: white;
+  margin: 0px 10px;
+}
+.controls .fa-volume-mute {
+  color: white;
+  margin: 0px 10px;
+}
+.controls .fa-expand {
+  color: white;
+}
+.controls .timestamp {
+  color: #fff;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.progress-volume {
+  width: 30%;
+}
+.btn:focus {
+  outline: 0;
+}
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+.fullscreen-header {
+  display: none;
+}
+#playbackRate {
+  border: none;
+  outline: none;
+}
+@media only screen and (max-width: 500px) {
+  .container {
+    width: 90vw;
+  }
+  .fullscreen {
+    width: 100vw;
+    height: 100vh;
+  }
+  .fullscreen-header {
+    display: none;
+  }
+}
