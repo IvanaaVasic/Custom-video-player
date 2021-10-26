@@ -77,7 +77,6 @@ function toggleMute() {
   const volumeNum = parseFloat(progressVolume.value);
 
   if (video.muted) {
-    console.log("muted");
     progressVolume.value = 0;
   } else {
     progressVolume.value = 1;
@@ -97,7 +96,6 @@ function updateVolumeIcon() {
 function updatePlaybackRate() {
   const selectedValue = playbackRate.options[playbackRate.selectedIndex].value;
   video.playbackRate = selectedValue;
-  console.log(selectedValue);
 }
 
 // Event listeners
