@@ -100,13 +100,6 @@ h1 {
 .btn:focus {
   outline: 0;
 }
-.fullscreen {
-  width: 100vw;
-  height: 100vh;
-}
-.fullscreen-header {
-  display: none;
-}
 #playbackRate {
   border: none;
   outline: none;
