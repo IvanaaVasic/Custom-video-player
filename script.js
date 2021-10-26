@@ -61,11 +61,14 @@ function stopVideo() {
 }
 
 //Get fullscreen
-function setScreenSize() {
+function toggleFullscreen() {
   const container = document.querySelector(".container");
-  const header = document.querySelector(".header");
-  container.classList.toggle("fullscreen");
-  header.classList.toggle("fullscreen-header");
+
+  if (!document.fullscreenElement) {
+    container.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
 }
 
 //Mute video
@@ -106,7 +109,7 @@ play.addEventListener("click", toggleVideoStatus);
 stop.addEventListener("click", stopVideo);
 progress.addEventListener("change", setVideoProgress);
 progressVolume.addEventListener("input", updateVolume);
-fullScreen.addEventListener("click", setScreenSize);
+fullScreen.addEventListener("click", toggleFullscreen);
 volume.addEventListener("click", toggleMute);
 volume.addEventListener("click", updateVolumeIcon);
 playbackRate.addEventListener("change", updatePlaybackRate);
