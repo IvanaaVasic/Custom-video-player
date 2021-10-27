@@ -28,6 +28,29 @@ function updatePlayIcon() {
 function updateVolume() {
   const volumeNum = parseFloat(progressVolume.value);
   video.volume = volumeNum;
+  if (video.volume === 0) {
+    volume.innerHTML = '<i class="fas fa-volume-mute"></i>';
+    video.muted = true;
+  } else {
+    volume.innerHTML = ' <i class="fas fa-volume-up"></i>';
+    video.muted = false;
+  }
+}
+
+//Mute video
+function toggleMute() {
+  video.muted = !video.muted;
+  const volumeNum = parseFloat(progressVolume.value);
+
+  if (video.muted) {
+    progressVolume.value = 0;
+    video.volume = 0;
+    volume.innerHTML = '<i class="fas fa-volume-mute"></i>';
+  } else {
+    progressVolume.value = 1;
+    video.volume = 1;
+    volume.innerHTML = ' <i class="fas fa-volume-up"></i>';
+  }
 }
 
 // Update progress & timestamp
@@ -71,27 +94,6 @@ function toggleFullscreen() {
   }
 }
 
-//Mute video
-function toggleMute() {
-  video.muted = !video.muted;
-  const volumeNum = parseFloat(progressVolume.value);
-
-  if (video.muted) {
-    progressVolume.value = 0;
-  } else {
-    progressVolume.value = 1;
-  }
-}
-
-//Update volume icon
-function updateVolumeIcon() {
-  if (video.muted) {
-    volume.innerHTML = '<i class="fas fa-volume-mute"></i>';
-  } else {
-    volume.innerHTML = ' <i class="fas fa-volume-up"></i>';
-  }
-}
-
 //Playback rate
 function updatePlaybackRate() {
   const selectedValue = playbackRate.options[playbackRate.selectedIndex].value;
@@ -109,5 +111,4 @@ progress.addEventListener("change", setVideoProgress);
 progressVolume.addEventListener("input", updateVolume);
 fullScreen.addEventListener("click", toggleFullscreen);
 volume.addEventListener("click", toggleMute);
-volume.addEventListener("click", updateVolumeIcon);
 playbackRate.addEventListener("change", updatePlaybackRate);
